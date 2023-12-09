@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+@import url('https://fonts.cdnfonts.com/css/black-arcade');
+@import url("https://fonts.googleapis.com/css?family=Muli:900");
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensures space distribution */
+    height: 100vh;
+    background: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg'); 
+    background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+        font-family: Arial, sans-serif;
+    }
+
+    @-webkit-keyframes slidein {
+        from {background-position: top; background-size:3000px; }
+        to {background-position: -100px 0px;background-size:2750px;}
+        }
+
+
+
+
+header {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background-image: linear-gradient( 89.7deg, rgba(223,0,0,1) 2.7%, rgba(214,91,0,1) 15.1%, rgba(233,245,0,1) 29.5%, rgba(23,255,17,1) 45.8%, rgba(29,255,255,1) 61.5%, rgba(5,17,255,1) 76.4%, rgba(202,0,253,1) 92.4% );
+    opacity: 0.6;
+}
+
+.heading {
+    font-size: 2.5em;
+    margin: 0;
+    font-family: 'Black Arcade', sans-serif;
+    color: rgb(3, 14, 107);
+}
+
+.animated-title {
+    font-size: 2.9em;
+    color: rgb(56, 221, 10); 
+    animation: slide-in 2s 1;
+}
+
+@keyframes slide-in {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+#gameCanvasContainer {
+    position: relative; /* Set to contain absolute elements inside it */
+    width: 90vmin; /* Increased width to take more space */
+    height: 90vmin; /* Increased height to make the game canvas larger */
+    max-width: 100%; /* Ensures it doesn’t go beyond the screen width */
+    z-index: 1;
+    opacity: 0.8;
+    margin-top: -4%;
+    }
+
+#gameCanvas {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    position: relative; /* Relative to its parent */
+    background-color: #541681; /* Canvas background */
+    z-index: 2;
+}
+
+#gameStartScreen {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    height: 80%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3; 
+}
+#gameOverScreen.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /*top: 60%;*/
+    /*left: 0;*/
+    width: 20%;
+    height: 10%;
+    background: rgba(0, 0, 0, 0.163); 
+    z-index: 10;  /*Ensure this overlay is above other elements */
+}
+
+#gameOverScreen {
+    display: none; /* It will be shown programmatically */
+    position: absolute; /* This will allow the overlay to cover the game canvas */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center; /* Horizontally center children */
+    align-items: center; /* Vertically center children */
+    flex-direction: column; /* Stack children vertically */
+}
+
+
+
+#gameStartScreen.active, #gameOverScreen.active {
+    pointer-events: auto;  /* Enables pointer events when the screen is active */
+}
+
+
+#gameOverMessage {
+    color: rgb(190, 17, 92);
+    font-size: 2em; /* Adjust as needed */
+    text-align: center;
+}
+
+.hidden { display: none;
+            pointer-events: none; /* No events for hidden elements */
+}
+
+#restart {
+    pointer-events: auto;
+    background-color: rgba(0, 255, 255, 0.507);
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+input, select { padding: 10px; margin: 5px 0; }
+
+/* Media Queries to handle responsiveness */
+@media (max-width: 599px) {
+    .heading { font-size: 2em; } /* Smaller font size for smaller screens */
+    #gameCanvasContainer { width: 100vmin; 
+        height: 100vmin;
+        margin-bottom: 5%;
+     } /* Full screen for the canvas */
+}
+
+@media (min-width: 600px) {
+    .heading { font-size: 2.5em; }
+    #gameCanvasContainer { 
+        margin-bottom: 4%;
+}
+}
+@media (min-width: 768px) {
+    .heading { font-size: 3em; }
+}
+
+@media (min-width: 992px) {
+    .heading { font-size: 3.5em; }
+    #gameCanvasContainer { 
+        margin-bottom: 4%;
+        height: 60vmin;
+}
+    .header {
+        margin-top: -2%;
+    }
+}
+@media (min-width: 1200px) {
+    .heading { font-size: 4em; }
+}
+
+@media (min-width: 1400px) {
+    .heading { font-size: 4.5em; }
+    #gameCanvasContainer { width: 130vmin;
+         height: 66vmin;
+         margin-top: -5%;
+         margin-bottom: 1%;
+         } /* Large enough for big screens */
+    .header {
+        margin-top: -6%;
+
+    }
+}

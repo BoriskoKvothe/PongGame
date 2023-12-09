@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong Game</title>
+    <link rel="stylesheet" href="./PingpongWorking.css">
+</head>
+<body>
+    <header>
+        <h1 class="heading">The Realm of Skyliron</h1>
+    </header>
+     <!-- New Heading Element -->
+     <div class="header">
+        <h2 class="animated-title">Ping Pong Game</h2>
+    </div>
+    <div id="gameStartScreen">
+        <input type="text" id="playerNameInput" placeholder="Enter your name" value="">
+        <select id="controlSelect">
+            <option value="mouse">Mouse</option>
+            <option value="keyboard">Keyboard</option>
+        </select>
+        <button id="startGame">Start Game</button>
+    </div>
+
+    <div id="gameOverScreen" class="hidden">
+        <div id="gameOverMessage"></div>
+        <button id="restart">Restart Game</button>
+    </div>
+
+    <div id="gameCanvasContainer">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script src="./PingpongWorking.js"></script>
+</body>
+</html>
